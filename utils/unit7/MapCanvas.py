@@ -36,7 +36,7 @@ class MapCanvas:
                 's',
                 color=self.colors[i_feat,:],
                 #MarkerFaceColor=colors[i_feat,:],
-                MarkerSize=10)
+                markersize=10)
 
         self.hObsLine = self.ax.plot([0,0],[0,0], linestyle=':')
         robot.draw(self.fig, self.ax)

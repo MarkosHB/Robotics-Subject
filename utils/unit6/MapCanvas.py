@@ -52,8 +52,8 @@ class MapCanvas:
         for c in range(len(iFeature)):
             if (iFeature[c] != -1):
                 self._reading[c] = self.ax.plot(
-                    [xVehicleTrue[0], Map[0, iFeature[c]]], 
-                    [xVehicleTrue[1], Map[1, iFeature[c]]]
+                    [xVehicleTrue[0][0], Map[0, iFeature[c]]], 
+                    [xVehicleTrue[1][0], Map[1, iFeature[c]]]
                 )
             else:
                 self._reading[c] = None
