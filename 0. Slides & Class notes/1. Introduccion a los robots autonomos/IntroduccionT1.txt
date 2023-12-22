@@ -1,0 +1,16 @@
+===========================
+==== Robotica Autonoma ====
+===========================
+ 
+ Enfoque Probabilistico -> Sistema sensor-motor
+ ----------------------------------------------
+  |-> Gestion de la Incertidumbre.
+  	(del mundo, del estado del robot y de la planificacion)
+  	
+  |-> Grados de libertad = Ejes + nº Angulos entre los ejes
+  	Plano: 3 -> X Y + 1 angulo //Indoor (Simples)
+  	Espacio: 6 -> X Y Z + 3 angulos //Outdoor (Complejas)
+  
+  |-> Embodiment. Componente fisico (en vez de solo software)
+  
+ 

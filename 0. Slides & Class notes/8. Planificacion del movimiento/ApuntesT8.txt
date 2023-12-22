@@ -1,0 +1,73 @@
+===========================
+===== Motion Planning =====
+===========================
+ 
+ Dos maneras de ver:
+ |-> Planificacion del camino. Path desde A a B (sin vel. aceleracion ni tiempo)
+ 	Restricciones no holonomica, velocidad/aceleracion limitada
+ 	
+ |-> Planificacion del movimiento. Comandos de vel, tiempo (no se ve en el temario)
+  	Trayectoria en lugar de camino
+  
+ |-> Crear un camino libre de obstaculos (espacio de trabajo + modelo)
+ 
+ ----------------------------------------------------------------------------------
+ 
+ Planificacion con Mapa de Carretera (Roadmap)
+ |-> Navegacion global. Secuencia de hitos (puntos) que el robot debe pasar
+ 	Busqueda en grafos A* , funcion de coste cambiante
+ 	Entrada: Mapa original
+ 	
+ |-> Navegacion local/reactiva. Ir entre hitos sin chocarse (tiempo real)
+ 	Entrada: Informacion de los sensores
+ 	
+ Espacio de trabajo => Robot como un punto
+ ------------------
+  |-> Obstaculos y espacio libre
+  	Binarizamos el mapa de ocupacion (sesgo)
+ 
+ Espacio de configuracion => Robot como pose
+ ------------------------
+  |-> Poses posibles para que el robot pueda seguir el camino
+  
+  C-Space => Espacio ajustado al tamaño que tiene el robot, 
+  	Dilatacion/Minkowski sum
+  
+  La orientacion del robot es relevante para poder elegir un camino 
+  	Si no tiene suficiente grados de libertad
+  
+  Si el robot no es circular, intentar pasar el robot a un punto (mas dimensiones)
+  	Crear un espacio para tener en cuenta todas las poses del obstaculo
+  
+ ---------------------------------------------------------------------------------
+  
+ Navegacion global
+ -----------------
+  |-> Algoritmo de la mosca. Chocarse con obstaculos y rodearlos pegados
+  |-> Grafo de visibilidad. Conectar los vertices de obstaculos
+  |-> Voronoi diagram. Mayor distancia posible a los obstaculos
+  |-> Descomposicion en celdas. Distancias de las celdas desde start a goal
+  
+  Tecnicas basadas en muestras => Conectar las poses aleatorias (sin pasar)
+  |-> Probabilistic Road Map. Grafos entre puntos de espacio libre validos
+  	Camino optimo entre los posibles (k-nearest neighbors)
+  
+ Navegacion reactiva
+ --------------------
+  |-> *** No hay mapa (no suele haber memoria) *** Solo acciones en base a sensores
+  	Se puede olvidar que tiene obstaculos cercanos
+  	Actualizacion de los obstaculos que no ve (se pueden ir y creer que sigue)
+  		Pq lo ha introducido por los sensores // Sol. sensor virtual
+  	
+  |-> Campos potenciales. 
+  	Goal -> Atractivo // Obstacle -> Repulsivo
+  	Vectores son el gradiente del campo potencial
+  	Potencial minimo en goal (tela para abajo) maximo en obs (tela para arriba)
+  	
+  |-> Atrapado en minimos locales
+  
+ ==================================================================================
+ ==================================================================================
+  
+  
+  

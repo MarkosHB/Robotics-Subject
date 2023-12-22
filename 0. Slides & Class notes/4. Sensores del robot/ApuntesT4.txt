@@ -1,0 +1,151 @@
+==============================
+===== Sensores del robot =====
+==============================
+
+ Tipos de sensores
+ -----------------
+  |-> Proprioceptivos. Mide los estados internos del robot 
+  |-> Exteroceptivos. Mide aspectos del entorno
+  
+  |-> Pasivos. Reciben la energia del entorno (mejor alcance y cobertura)
+  |-> Activos. Emiten su propia luz (entornos cambiantes de luz, consumo alto)
+  
+ 
+  Beacons = Guias para precisar la posicion en un entorno
+  ---------
+   |-> Naturales (landmarks). Caracteristicas del entorno
+   |-> Artificiales. GPS, reflectores, antenas, WIFI, QR...
+  	Ventajas -> Dan posicionamiento absoluto, simples y eficientes algoritmos
+  	Desventajas -> Coste de cambiar el entorno, poco flexibles ni adaptables
+  
+  
+  GPS => CLAVE para el robot de exterior
+  ------
+   |-> Moviles y activas beacons artificiales
+   |-> Metodo de trilaterizacion.
+   	Proceso para localizar a partir de medir las distancias de puntos conocidos
+   
+   	*** Alternativa => Triangulacion , igual pero a partir de los angulos ***
+  
+   |-> Manda por broadcast ondas de radio codificadas con:
+   	- Identidad y localizacion del satelite
+   	- Datos y tiempo de cuando se envio la señal
+   		
+   |-> GPS Control Segment.  Satelites - GF 
+   	Satelites
+   	Ground Facilities que dan soporte. 
+   	   Monitor/Tracking Stations reciben data ...
+   	   ... y lo pasan hacia un Master Control Station (corrige, sincroniza)
+   		
+   |-> Niveles de servicio.
+   	Standard (C/A) -> Para todos los usuarios, sin restricciones, 
+   			    los mejores receptores precisan hasta 3 metros 
+   	Precise (P) -> Para servicios militares, usa dos señales (repetidas)	
+   
+   |-> Time of Flight => Diferencia (latencia) entre el satelite y el usuario	
+   		
+   |-> Errores.
+   	Claves para la precision y la sincronizacion
+   	Producidos por interferencias, sincronizacion, condiciones del entorno...
+   	
+   	Tecnicas.
+   	  Stand Alone => GPS solo sin correcciones <10 metros (moviles)
+   	  Differencial GPS => Referencia para corregir <5 metros
+   	  RTK GPS => DGPS con mayor complejidad en el data processing <10 cm
+   	
+  
+  Sonar
+  -----   	     		
+   |-> Par de repector y emisor de sonidos ultrasonicos >20 KHz
+   |-> Sincronizados, distancia a partir del tiempo de ida-vuelta
+   |-> Ancho sobre unos 30 grados, divididos por lobes (zonas)
+   	Se suelen descartar los secundarios y nos quedamos con el principal	
+   
+   |-> Resolucion lateral no muy precisa, zona mas cerca alerta
+   |-> Missed Echo. El rebote pasa tal que no vuelve el haz (como si no hubiera)
+   
+   Features.
+   	Pequeño, barato, poco consumo, hasta 3m de rango, resolucion angulas mala
+   	Problemas con specular objects y esquinas.
+   	Bueno para detectar pero malo para localizar y mapear.		
+   		
+   		
+  Infrarrojos
+  -----------		
+   |-> Basados en la triangulacion de la luz 
+   |-> Distancia calculada a partir del angulo detectado
+   
+   Features.
+   	Pequeño, barato, poco consumo, rango hasta 2m, buena deteccion angular,
+   	Problemas con objetos oscuros, cristal y transparente, tb con luz solar
+   
+   
+  Laser escaner
+  -------------
+   |-> Ilumina un objetivo (mayor distancia = mas potencia), componentes moviles
+   |-> Calcula el round-trip. 	2 * D = c * time
+   |-> Muy preciso <5cm y gran alcance 50m, moderadamente permitible (1000-2500)$
+   
+   Ejemplos -> HOKUYO radial laser scanner, SICK radial laser scanner
+   
+   Principios con los que funcionan.
+   	|-> Pulse time-of-light. Mayor alcance, mas lento, menos preciso
+   	|-> Phase shift. Alcance medio, muy preciso, muy rapido
+   
+   
+  RBG-D Camaras
+  ------------- 
+   |-> Sin componentes moviles
+   
+  
+  Modelo Probabilistico Sensorial
+  -------------------------------
+   |-> Los sensores no son fiables. verdad + error
+   |-> Definimos p(z|v) funcion de *** 2 variables *** | z observaciones, v verdad
+   
+   |-> Asumimos independencia entre las observaciones (z)
+   
+   |-> MAP es un listado de objetos (landmarks) por su localizacion (y propiedades)
+   	TIPOS
+   	 - Landmark-based map => Camaras, beacons
+   	 	Descritos por su posicion y algun descriptor
+   	 	Usado en Bearing(angle),Range(dist.), both
+   	 - Occupancy grid map => Scan-based sensors y camaras de profundidad
+   		Celdas para cada elemento, con prob asociada
+   		Usado en Beam Model, Liklihood field
+   		
+   |-> Las observaciones (z) tienen un error => z = h(x,m) + w
+   	Donde h es la funcion de observaciones que predice z dado el estado x & m
+   
+   |-> Sensores determinan la distancia, bearing o *** ambas *** 
+   	Esto genera un nuevo problema (asociar cada m a cada z)
+   
+   El GPS/laser te da la distancia, dos camaras la dist + angulo (profundidad)
+   
+   
+ Beam Model para sensores de barrido	*** EXAMEN ***
+ -----------------------------------
+  |-> scan z dado una pose y el mapa (scan sobre un mapa o sobre otro scan)
+  |-> Si ponemos una gaussiana, la medida sobre la esperada
+  	Ponemos una exponencial que muere cuando se llega a la z_exp
+  
+  Ray casting => cada rayo tiene un z esperado (se prevee llegar a algun objeto 
+  			en el propio mapa z_expected)
+  			
+  Demasiado costoso computancionalmente => Demasiados rayos (ray casting)
+  
+  No se puede navegar con este modelo , necesitas el mapa y el x
+  
+ Likelihood model
+ ----------------
+  |-> Precalcular la funcion que determina el ray casting
+ 	El punto final del laser (objetivo en el mapa) se calcula pasando a polares
+  
+  En este solo necesitas el mapa, como cambie puedes modelar con una gaussiana
+  los bordes de los objetos
+  
+  
+  *** EXAMEN ***
+  z = h(x,m) + w => es una distribucion normal N(z; h(x,m), matriz del error)
+    
+   

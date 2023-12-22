@@ -1,0 +1,38 @@
+===============================
+===== ROS: OP para robots =====
+===============================
+
+ Clasificacion
+ -------------
+  1) Deliberativa. 
+  	Entorno estatico, ejecucion tareas perfecta, no reaccion a perturbaciones
+  
+  2) Reactiva.
+  	Sin planning, entorno dinamico, opera en base a reaccion
+  
+  3) Hibrido.
+  	Mezcla de ambas
+  	
+ Robot Operating System
+ ----------------------
+  |-> Open source, facilidad para colaborar entre desarrolladores
+  |-> Basado en distribuciones
+  
+  Ros 2 => No master, usa DDS
+  
+ Componentes y comandos
+ ----------------------
+  |-> Paquetes (package.xml), programas
+  	|-> Nodos, procesos que se ejecutan (un unico cometido)
+  
+  |-> Topics (Publicar y subscribirse)
+  	Comunicacion 1-1, 1-M, M-M ...
+  
+  |-> Servicios (Pedir algo a otro nodo) .srv
+  
+  |-> Parametros de configuracion
+  
+  |-> Acciones
+  	Los servicios son bloqueantes, estos no (se pueden cancelar)
+  
+  ***EXAMEN*** Grafico y decir quien se subscribe a quien (sentido de la flecha)

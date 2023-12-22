@@ -1,0 +1,91 @@
+================================
+===== Movimiento del robot =====
+================================
+
+ |-> Pose del robot (posicion + angulo/orientacion)
+ 	Plano: x,y + angulo (3)	Espacio: x,y,z + 3 angulos (6)
+ |-> No holonomico: Espacio con mas grados de libertad que los del propio robot
+ Coche 2 grados de libertad locales, en un espacio de 3 globales (plano + angulo)
+ 
+ |-> Differential Drive: Dos ruedas a los costados
+ 
+ 
+ ICR: Centro instantaneo de rotacion  -> Centro del eje de rotacion
+ -----------------------------------
+  Eje donde se produce el giro (solo vel angular, no hay vel lineal)
+  Si ICR es un punto no patinan las ruedas,circulo (si es una zona siempre patina)
+  Vel en el extremo siempre es la mitad que en el punto medio (centro es 0)
+ 
+  El ICR se desplaza junto con el robot.
+  (el camino es la composicion de los movs con los diferentes ICR)
+  
+  La rueda loca evita el problema del deslizamiento
+  ICR cuando vamos recto -> No esta en el centro , esta en el infinito
+  ICR giro a la izq -> Esta a la izq // ICR giro a la der -> Esta a la der
+  	vel_izq = R_izq * w //vel angular
+  ICR darse la vuelta -> ICR en el centro del robot ¿?
+ 
+ *** Sistema de referencia de un robot -> Centro del eje de las ruedas motrices ***
+ 
+  vp tiene que estar alineado con el eje X para que no patine (no holonomico)
+  
+ Composicion de pose -> Distintos sistemas de referencias
+ -------------------
+  |-> Solo translacion (mismo sistema): Suma de los vectores 
+  |-> Traslacion + rotacion: Composicion de pose
+  	 (suma angulos && transformar vectores)
+  	
+  Obtener la proyeccion en el sistema de referencia original en el nuevo del mov
+  Matriz de rotacion (si no hay rotacion) es la identidad -> R * x_1-2 + x1
+  
+  Coordenadas homogeneas (añadir una dimension mas y que sea 1)
+  
+  Aplicaciones de la matriz 
+  -------------------------
+  1)
+  Detectar marcas gracias a poder calcular la inversa de la pose
+  El (origen o lo que sea) con respecto al sistema de referencia del robot
+  
+  2)
+  Concatenacion de poses gracias a la inversa. Pasar de T0 al T1 y al T2
+  
+  Propiedades de las poses
+  ------------------------
+   |-> Closure: Composicion de poses da otra pose
+   |-> Asociatividad.
+   |-> Identidad. x=0,y=0,angulo=0
+   |-> Inversa.
+   
+   NO ES CONMUTATIVA (como las matrices)
+  
+ Modelo probabilistico del movimiento -> Distribucion de probabilidad
+ ------------------------------------
+  |-> Tener en cuenta el posible error (deslizar, impreciso...)
+  |-> p(x_t|u_t,x_t-1) // Nueva pose = movimiento + antigua pose
+  
+  Sample Form -> Calcular donde estan las particulas ahora
+  
+  Modelo basado en Velocidades (2 vars) -> Sin codificadores opticos en las ruedas
+  -------------------------------------
+   |-> Gaussiana + (composicion) Gaussiana != Gaussiana pq hay senos y cosenos
+   	No es una funcion lineal, hay que hacerla lineal con Taylor (aprox)
+   	Media es media(x_t-1) compuesto media(incrementox_t)
+   	Varianza es Jacobiano(G) * Sigma_x * Jacobiano_Transpuesto(G) 
+  
+  Modelo basado en Odometria (3 vars) -> Incremento de pose 
+  -----------------------------------
+   |-> Con codificadores opticos (contador de pulsos de luz continua)
+   |-> Composicion de movimientos circulares de velocidad const en muy alta frec.
+  
+   Forma analitica -> Se sigue una gaussiana
+   Mean => incremento_xt = inversa(p_t-1) compuesta(p_t) ***
+   
+   Forma muestra (sample) -> pdf dada por las muestras (no gaussiana)
+   	Histograma como aproximacion de la pdf
+   
+  
+   EXAMEN: Dimensiones del jacobiano para un ejercicio concreto 
+  
+  
+  
+   

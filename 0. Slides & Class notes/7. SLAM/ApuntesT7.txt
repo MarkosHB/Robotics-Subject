@@ -1,0 +1,28 @@
+================
+===== SLAM =====
+================
+ 
+ |-> Localizacion y creacion de mapas de manera simultanea // p(x,m|z,u)
+ |-> Full SLAM problem. Estimar todas las poses (path) del robot en el mapa
+ |-> Online SLAM. Solo calculamos la ultima pose, pero se hace todo el mapa
+ 
+ *** EXAMEN *** Si ves una z, sabes de que marca es
+ 
+ Dimensiones del vector de estados => 3 + 2L //x,y,teta + 2 * x,y
+ 
+ Hay correlacion entre las poses y las marcas // Aumenta conferme se hace el mapa
+ 
+ *** EXAMEN *** Terminos del jacobiano de la suma de dos terminos
+ 
+ *** Loop closure ***  
+ Revisitar una marca ya vista para corregir ahora que hay mucha incertidumbre
+ 
+ Grafos para hacer SLAM
+ ----------------------
+  |-> Nodos = Poses y marcas (incognitas)
+  |-> Minimos cuadrados entre la primera observacion (dist,ang) y la de vuelta
+  |-> Arcos del grafo como si fueran muelles
+  
+  Si hay error, mover todos los nodos menos el primero que hace que el error sea
+  	el menor de todos (que es el que mejor explica las observaciones)
+  	

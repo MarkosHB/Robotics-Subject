@@ -1,0 +1,112 @@
+==================================
+===== Localizacion del robot =====
+==================================
+ 
+ |-> p(x|z,m) calcular la x a partir de z,m
+ 	Es la funcion de densidad de probabilidad de N(z;h(x),Q)
+ 
+ 
+ Posicionamiento por minimos cuadrados => z = H * x
+ -------------------------------------
+  |-> Mismas dimensiones => Podemos calcular la pose a partir de la z
+  |-> Menor m que n => Infinitas soluciones (menos observaciones que incognitas)
+  |-> Mayor m que n => Info con error  (Minimo error cuadratico) //Pseudoinversa
+  	Mas ecuaciones que incognitas // Solucion cerrada (sin iterar)
+  	Expresion: z * H + e //Vector de errores por cada medicion independiente
+  
+  Vector de errores transpuesto * vector de errores // Minimo error cuadratico
+  Todo esto al cuadrado (o valores absolutos) para que no contrarresten
+  
+  Weighted Q => ponderar los errores en las mediciones (div por la covarianza)
+  	Va dividinedo pq si la sigma es grande, le hago menos caso
+ 
+ Minimos cuadrados no lineales => z = h(x) + w	=> w = z - h(x)
+ -----------------------------
+  |-> Desarrollo en serie de Taylor y se trunca en la primera derivada
+  |-> Si ponderamos queda igual que en el caso lineal (la matriz Q de pesos)
+  |-> Se pueden crear minimos locales, nos desplazamos con incrementos (deltas)
+  
+  *** w sigue una normal(w, mu=0; cov=Q) si x no es una variable aleatoria ***
+  Si x es V.A // normal(x;media,sigma) => w es normal(z;h(x),Q*J_h*Sigma*J_h')
+  
+  *** EXAMEN *** Dimensiones del jacobiano para un ejemplo que da el
+  	
+ Posicionamiento por minimos cuadrados
+ -------------------------------------
+  |-> Multi-laterizacion = Distancias (GPS, antenas wifi...)
+  |-> Se necesitan tres mediciones para poder localizarnos (o una con el angulo)
+  	(con dos, se cortan en dos puntos) 
+  	(con uno puedo estar en cualquier parte de la cirfunferencia) 
+  
+  Cuando no se cortan, tenemos que encontrar la mejor solucion con Min. Cuadrados
+  
+  ***
+  La funcion h(x) va de R3 a R2 (toma la x,y,angulo) y nos da el modulo y la arctg
+  El jacobiano se calcula derivando con respecto a x,y,angulo
+  ***
+  
+  Hay una funcion h(x) por cada medida en el range-only
+  
+  En el jacobiano los angulos van a ser cero (no depende de)
+  	Eliminamos esa columna para que pueda ser inversible (matriz 3x2)
+  No podremos encontrar nunca el angulo optimo (con min.cuadrados/trilateracion)
+  El gps no puede nunca darnos el angulo, pero si la x,y
+  
+  ***
+  El ruido (error) es gaussiano, pero genera un donut que no es gaussiano
+  ***
+  
+  Cuando hay dos observaciones, que son donuts, generan dos "zonas" (interseccion)
+  Con tres, una de las dos zonas se descarta
+  
+  |-> Caracteristicas:
+  	- Necesitamos tres medidas (full-observability) 
+  		//Mismo numero de observaciones que de incognitas
+  		Podemos usar el filtro de Kalman para solventar esto
+  
+  
+  Registro con un mapas
+  ---------------------
+   |-> Landmarks // Hacer corresponder las distancias a los landmarks conocidos
+   La matriz de rotacion R es derv. seno/coseno del angulo (como el tema de poses)
+  
+   Error = mapa - pose (compuesto) observacion	
+   // Minimizar la suma de los errores al cuadrado
+   
+   *** EXAMEN:   Dado el dibujo, cual es la expresion a minimizar ***
+   
+   |-> Scan // No puedes comparar un punto con otro, son todos iguales
+   Emparejar cada punto con el mas cercano (en la nueva observacion)
+   Esto no es costoso si se usan algortimos como KD-Tree que descartan puntos
+   
+   
+  Filtro de Kalman discreto => Es un filtro de Bayes
+  -------------------------
+   |-> Combinacion de: un modelo que dice como se deberia comportar el sistema
+   	junto con las observaciones (con ruido) que se toman  
+   
+   |-> Etapas: Prediccion (prior) y Correccion (posterior)
+   
+   |-> Condiciones: Debe de ser lineal (z=Hx+e) y las poses tambien (composicion)
+   	(en la practica no se dan ninguna de las condiciones)
+   	
+   	Deben de ser gaussianas todas las pdfs (solo vale con normales)
+   	
+   	Paso de prediccion, calcula una gausiana mas grande (mas incertidumbre),
+   	Paso de correcion (inovacion = error entre lo previsto y la observacion)
+       
+   	*** EXAMEN: Terminos de Bel , mu y sigma de la prior *** 
+  
+  Filtro extendido de Kalman
+  --------------------------
+   |-> Hace que se cumplan las condiciones de Kalman al aproximar con jacobianos 
+   Linealizar la normal bien solo si la sigma no es muy grande 
+  
+  Filtro de particulas
+  --------------------
+   |-> Prob a posteriori a partir de un conjunto de muestras (particulas)
+   |-> Puede haber multihipotesis sobre donde esta el robot (no en Kalman)
+   |-> Costoso cuando se hace en el espacio (3 dimensiones)
+   
+   
+   

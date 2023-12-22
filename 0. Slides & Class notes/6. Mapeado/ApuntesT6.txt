@@ -1,0 +1,32 @@
+===================
+===== Mapeado =====
+===================
+ 
+ (Least Squares) min e.T * Q^-1 * e = x_Max_Likelihood
+ 
+ Maximizar la probabilidad p(x|z,m) 
+ 	es minimizar los exponentes de las gaussianas (e.T * Q * e)
+
+ |-> Tipos de mapas
+ 	Geometerico => Landmarks (pos y descripcion del landmark)
+ 		   => Grid/ocupacion (prob de ocucacion por celdas)
+	Topologia  => Grafos modelan la forma del entorno
+	Semanticos => Alto nivel (conexiones logicas)
+
+ Landmark Mapping -> Localizacion
+ ----------------
+  |-> No hay paso de prediccion (marcas absolutas en el entorno)
+  |-> Filtro de Kalman independiente para cada marca
+
+  *** EXAMEN ***
+  Composicion de poses usando jacobianos para pasar a polares
+  Incertidumbre m => [2x2] mx,my
+  
+ Mapas de ocupacion -> Navegar
+ ------------------
+  |-> Prob. de que una celda i,j este ocupada
+  	No es (0-1) por el error/incertidumbre del robot
+  |-> Celdas a 0,5 al principio // l_t-1 = 0
+  |-> Con los logaritmos nunca llegamos a (0-1)
+  |-> Distingue entre el espacio explorado y el que no (algo se suma si se ve)
+  |-> Umbralizar para pasar el mapa a blancos y negros

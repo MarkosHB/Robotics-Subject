@@ -1,0 +1,235 @@
+===============================================================
+===== Probabilidad y estadistica basicas para la robotica =====
+===============================================================
+ 
+ Variables aleatorias discretas --> Valores (Sumando)
+ ------------------------------
+  |-> P(xi) // P(X) funcion de probabilidad masa
+  |-> Localizacion en un grid, reconocimiento de objetos
+  
+ Variables aleatorias continuas --> Areas (Integrando)
+ ------------------------------
+  |-> p(X pertenece [a,b]) funcion de densidad probabilistica (integral)
+  	*** No es la prob. de que X tome el valor x ***
+  	
+  |-> Localizacion en un plano continuo, medir distancia a objetos
+  	*** Prob en un punto en concreto = 0 (no hay area) ***
+  	
+  EXAMEN: Calcular la prob en un plano continuo (en un intervalo)
+  	
+ Joint Probability --> P(x,y) = P(x|y) * P(y) = P(y|x) * P(x)
+ -----------------
+  |-> 2 variables (pueden ser d-c, c-c, d-d, c-d)
+  
+  EXAMEN: P(AuB) = P(A) + P(B) - P(A int. B)
+
+  *** Solo podemos pintar espacios continuos de 2 variables ***
+ 
+ Condicional Probability --> P(A|B)
+ -----------------------  
+  |-> Barra a la derecha es un dato conocido (funcion de una sola variable)
+  |-> P(A|B) es mucho mas sencillo de calcular (se sabe ya un dato)
+  
+ Probabilidad marginada --> Pr(x) // Marginalizar y
+ ---------------------- 
+  |-> Integrar para todos los valores de la variable que quiero 
+  	(Quitarla de enmedio, condensarla en una sola linea)
+  
+ Ejemplo: P(y=2) = 0,08 //Usando la marginal
+  *** Esperanza matematica (media) en lugar de la moda (mas alto) ***
+  0.1*1 + 0*2 + 0.3*3 + ... = valor esperado
+ 
+ Independencia de variables -> p(x,y) = p(x) * p(y)
+ --------------------------
+  x no dice nada sobre y --> P(x|y) = P(x) // P(y/x) = P(y)
+  P(x|y1) = P(x|y2) = ...
+  Las filas/columnas van por pares (no todas iguales entre si)
+  
+  *** No tienen pq ser simetricas ***
+   
+ Joint Probability de 2 o mas variables
+ --------------------------------------
+  |-> Gran cantidad de datos para procesar (creciemiento exponencial)
+  |-> Aplicar la regla del producto hasta dejar una sola
+ 
+ Independencia en las condicionadas 
+ ----------------------------------
+  |-> P(x,y|z) = P(x|z) * P(y|z)
+  |-> Independencia // P(x,y) = P(x) * P(y)
+
+ Modelos graficos
+ ----------------
+  |-> No puede haber bucles
+  |-> p(x,y,z) = p(z|y) * p(y|x) * p(x) // x -> y -> z
+ 
+ Propiedad de Markov
+ -------------------
+  |-> Estimaciones de variables aconteciendo durante el tiempo
+  |-> Solo depende de las nuevas y,z junto a la x anterior (ya calculada)
+  
+ Valor esperado de un RV -> SUM(x * P(x))
+ -----------------------
+  |-> Valor mas probable es la moda
+  |-> Valor promedio es el expected value
+  
+ Valor esperado de una funcion -> SUM(P(x) * f(x))
+ -----------------------------
+  |-> Siempre es un numero
+ 
+ Varianza y la covarianza
+ ------------------------
+  |-> x es escalar (posicion de un robot) // MUY RARO QUE SE USE
+  |-> x es vector (x,y,angulo) 
+  
+  inc(x^t) * inc(x) -> escalar // Producto escalar, norma euclidea al cuadrado 
+  inc(x) * inc(x^t) -> vector 
+  
+  x^t * SIGMA * x // Forma cuadratica, lo usamos en las gaussianas
+  [1xN] [NxN] [Nx1]
+  
+  En general:
+  	No hay correlacion x-> Independencia
+  En RV son gaussianas:
+  	No hay correlacion -> Independencia
+  
+ Teorema de Bayes -> Inferencia
+ ----------------
+  |-> Cambio de la prob de algo cuando va variando (avance del robot)
+  |-> Pose = Posicion + Orientacion 
+ 
+  Posterior [porporcional a] (likelihood * prior) / prob. Z
+   
+  Likelihood es los valores de x dado una determinada z
+  EXAMEN: Posterior es una funcion continua de x, z, x/z o de ninguna de las dos
+   |-> Es una funcion de x con un parametro z
+  P(x|Y) donde X es conocida
+   
+  *** P(z^o | x) + P(z^¬o | x) = 1 // P(z^o | open) + P(z^o | ¬open) != 1 ***
+   
+ Evidencias multiples
+ --------------------
+  |-> Añadir sensores peores hace que baje la probabilidad de acertar
+  |-> Bayes a la zn se considera en la formula hasta la zn-1 
+  |-> P(x|z1...zn) = P(x) * MULT(ni * P(zi|x))
+   
+ Distribuciones gaussianas
+ -------------------------
+  mu -> donde esta centrada ; sigma² // varianza -> anchura de la gaussiana
+  Media[x] = mu ; varianza[x] = sigma²
+  Si todo es constante en la funcion de una gausiana -> elipse
+   
+  Elipse (diagonal de la matriz de covarianzas son numeros distintos)
+  Circulo (si no lo fueran, ambos son iguales) //No se da
+   
+  Si no fuera diagonal, la elipse esta desalineada del eje (rotada)
+  (las que no se daban en calculo) *** HAY CORRELACION ENTRE LAS VARIABLES ***
+  Correlacion positiva -> Elem. no diagonal positivos (moverse a la derecha)
+  
+  P(x) = prob. marginal (que es campana de gauss en una dimension) //Abajo
+  
+  *** La mult. de dos gaussianas de variables aleatorias no es una gaussiana ***
+  
+  |-> Matriz de covarianza invertida en la ecuacion de la gaussiana
+  	Tiene que ser simetrica y positiva en su diagonal
+    
+ Distancia de Mahalanobis
+ ------------------------ 
+  |-> Introduce la matriz de covarianzas invertida a la dist. euclidea
+  	Escalamos con sigma 
+  |-> Cuan lejos esta un punto a una distribucion normal
+  
+  EXAMEN: Cambiar los ejes de referencia para una matriz de covarianza
+  Los autovectores no dependen de a, los autovalores si
+  lambda1 y lambda2 son distintos si en los nuevos ejes no es un circulo
+  
+  EXAMEN: Robot en el plano con dos obstaculos
+  
+  EXAMEN: Distancia euclidea cuando la campana de gauss sea un circulo
+ 
+ Propiedades de la Gaussiana
+ ---------------------------
+  |-> Producto, marginalizacion y transformada afin tambien son gaussianas
+  Producto: la nueva mu no es el medio de las otras dos mu
+  
+  EXAMEN: 
+  Mismas sigmas, la nueva mu esta justo en el centro
+  Si no lo son, pondera mas de mayor varianzas (inversamente proporcional)
+  Siempre van a ser mas alta si son mas estrchas, siempre va a ser menor la nueva
+  
+  EXAMEN: Y = ax + [b]
+  En las afines, si tenemos certeza de que se ha movido un metro,
+  la gaussiana es la misma desplazada un metro, pero como no hay que añadir 
+  la incertidumbre de que no hayamos sido precisos en el desplazamiento
+  
+  Si pasa eso, rompemos que estemos siempre en las gaussianas 
+  
+  *** Sumar hace que la barra suba (se desplaza la gassiana a la derecha),
+  	 la multiplicacion hace que ensanchar la gaussiana (la sigma) ***
+  
+  EXAMEN: Calcular el jacobiano de una funcion (x, y,...)
+  
+  Aproximanciones con Taylor buenas cuando la sigma sea pequeñas (altas)
+  Las aproxs son buenas cuanto mas cerca esten de la media
+  Solucion: Tener acotado el error
+ 
+ Propagacion del error
+ ---------------------
+  |-> La nueva matriz de covarianzas es la suma de las otras dos proyectadas 
+  	al espacio de la nueva Z (no tal cual, espacios distintos)
+  
+  |-> Igual con las nuevas medias, se suman pq estamos en el caso lineal
+  
+  |-> Si no fueran lineales , hay que hacer el jacobiano
+  
+  EXAMEN: Calc jacobiano a partir de la pose del robot (dimension del jacobiano)
+  x_t = g(x_t-1, u_t)   -> Derivada de g con respecto de x_t-1 es 3x3
+  			-> Derivada de g con respecto de u_t es 3x2
+ Conclusiones
+ ------------
+  |-> Mantener la gaussiana siempre que se pueda (no en mult.)
+  	Es simple (media y varianza) Trabajar con la media o moda
+ 
+ Montecarlo
+ ----------
+  |-> Obtener el valor esperado de una funcion
+  |-> Generar muestras para aplicarle la transformada y generar la grafica nueva
+  Generar particulas independientes y aplicar la transformacion + el error
+  a cada una de ellas, lo cual genera una distribucion distinta de la gaussiana
+  
+  Multihipotesis no se debe hacer con gaussianas (no saber donde estas pero 
+  	puedes ir descartando hipotesis conforma avanzas)
+  
+  Teorema central del limite
+ 
+ Estimacion de parametros de las gaussianas
+ ------------------------------------------
+  MAP, likelihood y Bayesiano
+  |-> Likelihood donde la x y la sigma son dadas y la variable es mu 
+  	Para obtener la funcion de densidad a partir de las particulas
+  
+  Likelihood -> Media entre las particulas
+  
+ Enfoque Bayesiano
+ -----------------
+  |-> Estimacion de parametros => ML o MAP
+   
+  Observaciones 'z' (reduce incertidumbre) && Movimiento del robot 'u' (aumenta) 
+   
+  Filtro de Bayes (estimar funcion de probabilidad gaussiana o montecarlo)
+  Belief = p(x_t | z_1:t , u_1:t) *** EXAMEN ***
+  Bayes -> eta * p(z|x) * p(x) // Donde eta = 1/p(z)
+  	p(x|z1..zt) = eta * p(zt|x1z_1:t-1) * p(xt|z_1:t-1)
+   
+  Prob total -> Integral dx_t-1 (a partir de la pose anterior)
+  Markov -> La nueva xt solo depende de la x_t-1 y de ut
+  
+  *** EXAMEN *** Desplegable para que elijas las etiquetas rojas a cada paso
+  
+ Filtro Kalman -> Aportar correcciones al modelo a partir de observaciones
+  
+  
+ Producto dos variables gaussianas es gaussiana -> NO  => x1x2 ~ N()
+ Lo que es gaussianas es el producto de dos pdfs gaussianas => g1(x) * g2(x)
+ La funcion deberia ser lineal, si no jacobianos 
+ / x3 = x1x2 = f(x1,x2) = Ax1 + B + (x2 + 1)
+  
