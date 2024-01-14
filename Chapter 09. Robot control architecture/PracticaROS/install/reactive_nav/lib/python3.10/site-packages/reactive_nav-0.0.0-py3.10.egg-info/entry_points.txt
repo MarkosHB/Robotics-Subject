@@ -1,0 +1,3 @@
+[console_scripts]
+potential_fields_nav = reactive_nav.potential_fields_nav:main
+

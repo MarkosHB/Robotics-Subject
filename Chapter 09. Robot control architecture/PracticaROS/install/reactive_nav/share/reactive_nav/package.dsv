@@ -1,0 +1,6 @@
+source;share/reactive_nav/hook/pythonpath.ps1
+source;share/reactive_nav/hook/pythonpath.dsv
+source;share/reactive_nav/hook/pythonpath.sh
+source;share/reactive_nav/hook/ament_prefix_path.ps1
+source;share/reactive_nav/hook/ament_prefix_path.dsv
+source;share/reactive_nav/hook/ament_prefix_path.sh

@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing reactive_nav.egg-info/PKG-INFO
+writing dependency_links to reactive_nav.egg-info/dependency_links.txt
+writing entry points to reactive_nav.egg-info/entry_points.txt
+writing requirements to reactive_nav.egg-info/requires.txt
+writing top-level names to reactive_nav.egg-info/top_level.txt
+reading manifest file 'reactive_nav.egg-info/SOURCES.txt'
+writing manifest file 'reactive_nav.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive-nav.egg-link (link to .)
+Installing potential_fields_nav script to /home/marcos/PracticaROS/install/reactive_nav/lib/reactive_nav
+
+Installed /home/marcos/PracticaROS/build/reactive_nav
+running install_data

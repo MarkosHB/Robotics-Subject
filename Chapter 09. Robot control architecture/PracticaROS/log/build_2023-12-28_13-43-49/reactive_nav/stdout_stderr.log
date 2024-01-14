@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/reactive_nav/reactive_nav.egg-info
+writing ../../build/reactive_nav/reactive_nav.egg-info/PKG-INFO
+writing dependency_links to ../../build/reactive_nav/reactive_nav.egg-info/dependency_links.txt
+writing entry points to ../../build/reactive_nav/reactive_nav.egg-info/entry_points.txt
+writing requirements to ../../build/reactive_nav/reactive_nav.egg-info/requires.txt
+writing top-level names to ../../build/reactive_nav/reactive_nav.egg-info/top_level.txt
+writing manifest file '../../build/reactive_nav/reactive_nav.egg-info/SOURCES.txt'
+reading manifest file '../../build/reactive_nav/reactive_nav.egg-info/SOURCES.txt'
+writing manifest file '../../build/reactive_nav/reactive_nav.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/marcos/PracticaROS/build/reactive_nav/build
+creating /home/marcos/PracticaROS/build/reactive_nav/build/lib
+creating /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav
+copying reactive_nav/__init__.py -> /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav
+copying reactive_nav/potential_fields_nav.py -> /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav
+running install
+running install_lib
+creating /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav
+copying /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav/__init__.py -> /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav
+copying /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav/potential_fields_nav.py -> /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav
+byte-compiling /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav/potential_fields_nav.py to potential_fields_nav.cpython-310.pyc
+running install_data
+creating /home/marcos/PracticaROS/install/reactive_nav/share/ament_index
+creating /home/marcos/PracticaROS/install/reactive_nav/share/ament_index/resource_index
+creating /home/marcos/PracticaROS/install/reactive_nav/share/ament_index/resource_index/packages
+copying resource/reactive_nav -> /home/marcos/PracticaROS/install/reactive_nav/share/ament_index/resource_index/packages
+copying package.xml -> /home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav
+running install_egg_info
+Copying ../../build/reactive_nav/reactive_nav.egg-info to /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav-0.0.0-py3.10.egg-info
+running install_scripts
+Installing potential_fields_nav script to /home/marcos/PracticaROS/install/reactive_nav/lib/reactive_nav
+writing list of installed files to '/home/marcos/PracticaROS/build/reactive_nav/install.log'

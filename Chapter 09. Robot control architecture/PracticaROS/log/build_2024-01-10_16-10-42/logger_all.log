@@ -1,0 +1,130 @@
+[3.191s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[3.191s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fbb21c63b20>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fbb21edd660>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fbb21edd660>>)
+[3.351s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[3.351s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[3.351s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[3.351s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[3.351s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[3.351s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[3.352s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/marcos/PracticaROS'
+[3.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[3.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[3.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[3.353s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[3.353s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[3.353s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[3.353s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[3.354s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[3.354s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[3.391s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[3.392s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[3.392s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[3.392s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[3.393s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[3.393s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[3.394s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[3.394s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[3.395s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[3.395s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[3.395s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[3.396s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[3.396s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[3.396s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[3.396s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[3.396s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[3.396s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[3.397s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[3.398s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extensions ['ignore', 'ignore_ament_install']
+[3.398s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extension 'ignore'
+[3.398s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extension 'ignore_ament_install'
+[3.398s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extensions ['colcon_pkg']
+[3.398s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extension 'colcon_pkg'
+[3.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extensions ['colcon_meta']
+[3.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extension 'colcon_meta'
+[3.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extensions ['ros']
+[3.399s] Level 1:colcon.colcon_core.package_identification:_identify(src/reactive_nav) by extension 'ros'
+[3.404s] DEBUG:colcon.colcon_core.package_identification:Package 'src/reactive_nav' with type 'ros.ament_python' and name 'reactive_nav'
+[3.404s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[3.405s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[3.405s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[3.405s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[3.405s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[3.662s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[3.662s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[3.764s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/marcos/PracticaROS/install
+[3.802s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/marcos/install
+[3.851s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 272 installed packages in /opt/ros/humble
+[3.856s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[4.158s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'cmake_args' from command line to 'None'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'cmake_target' from command line to 'None'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'cmake_clean_cache' from command line to 'False'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'cmake_clean_first' from command line to 'False'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'cmake_force_configure' from command line to 'False'
+[4.159s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'ament_cmake_args' from command line to 'None'
+[4.160s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'catkin_cmake_args' from command line to 'None'
+[4.160s] Level 5:colcon.colcon_core.verb:set package 'reactive_nav' build argument 'catkin_skip_building_tests' from command line to 'False'
+[4.161s] DEBUG:colcon.colcon_core.verb:Building package 'reactive_nav' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/marcos/PracticaROS/build/reactive_nav', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/marcos/PracticaROS/install/reactive_nav', 'merge_install': False, 'path': '/home/marcos/PracticaROS/src/reactive_nav', 'symlink_install': False, 'test_result_base': None}
+[4.201s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[4.256s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[4.257s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/marcos/PracticaROS/src/reactive_nav' with build type 'ament_python'
+[4.258s] Level 1:colcon.colcon_core.shell:create_environment_hook('reactive_nav', 'ament_prefix_path')
+[4.294s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[4.295s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/hook/ament_prefix_path.ps1'
+[4.298s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/hook/ament_prefix_path.dsv'
+[4.300s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/hook/ament_prefix_path.sh'
+[4.338s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.338s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.336s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/marcos/PracticaROS/src/reactive_nav'
+[5.386s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.387s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.619s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/marcos/PracticaROS/src/reactive_nav': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reactive_nav build --build-base /home/marcos/PracticaROS/build/reactive_nav/build install --record /home/marcos/PracticaROS/build/reactive_nav/install.log --single-version-externally-managed
+[7.608s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/marcos/PracticaROS/src/reactive_nav' returned '0': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reactive_nav build --build-base /home/marcos/PracticaROS/build/reactive_nav/build install --record /home/marcos/PracticaROS/build/reactive_nav/install.log --single-version-externally-managed
+[7.646s] Level 1:colcon.colcon_core.environment:checking '/home/marcos/PracticaROS/install/reactive_nav' for CMake module files
+[7.648s] Level 1:colcon.colcon_core.environment:checking '/home/marcos/PracticaROS/install/reactive_nav' for CMake config files
+[7.649s] Level 1:colcon.colcon_core.environment:checking '/home/marcos/PracticaROS/install/reactive_nav/lib'
+[7.650s] Level 1:colcon.colcon_core.environment:checking '/home/marcos/PracticaROS/install/reactive_nav/bin'
+[7.650s] Level 1:colcon.colcon_core.environment:checking '/home/marcos/PracticaROS/install/reactive_nav/lib/pkgconfig/reactive_nav.pc'
+[7.651s] Level 1:colcon.colcon_core.environment:checking '/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages'
+[7.651s] Level 1:colcon.colcon_core.shell:create_environment_hook('reactive_nav', 'pythonpath')
+[7.695s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/hook/pythonpath.ps1'
+[7.697s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/hook/pythonpath.dsv'
+[7.697s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/hook/pythonpath.sh'
+[7.698s] Level 1:colcon.colcon_core.environment:checking '/home/marcos/PracticaROS/install/reactive_nav/bin'
+[7.699s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(reactive_nav)
+[7.743s] INFO:colcon.colcon_core.shell:Creating package script '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/package.ps1'
+[7.746s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/package.dsv'
+[7.750s] INFO:colcon.colcon_core.shell:Creating package script '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/package.sh'
+[7.754s] INFO:colcon.colcon_core.shell:Creating package script '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/package.bash'
+[7.757s] INFO:colcon.colcon_core.shell:Creating package script '/home/marcos/PracticaROS/install/reactive_nav/share/reactive_nav/package.zsh'
+[7.760s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/marcos/PracticaROS/install/reactive_nav/share/colcon-core/packages/reactive_nav)
+[7.761s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.763s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.764s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[7.764s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.943s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[7.944s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.944s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.944s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.945s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[7.945s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.992s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/marcos/PracticaROS/install/local_setup.ps1'
+[7.994s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/marcos/PracticaROS/install/_local_setup_util_ps1.py'
+[7.997s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/marcos/PracticaROS/install/setup.ps1'
+[8.040s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/marcos/PracticaROS/install/local_setup.sh'
+[8.042s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/marcos/PracticaROS/install/_local_setup_util_sh.py'
+[8.043s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/marcos/PracticaROS/install/setup.sh'
+[8.084s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/marcos/PracticaROS/install/local_setup.bash'
+[8.085s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/marcos/PracticaROS/install/setup.bash'
+[8.134s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/marcos/PracticaROS/install/local_setup.zsh'
+[8.135s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/marcos/PracticaROS/install/setup.zsh'

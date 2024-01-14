@@ -1,0 +1,24 @@
+[2.394s] Invoking command in '/home/marcos/PracticaROS/src/reactive_nav': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reactive_nav build --build-base /home/marcos/PracticaROS/build/reactive_nav/build install --record /home/marcos/PracticaROS/build/reactive_nav/install.log --single-version-externally-managed
+[3.164s] running egg_info
+[3.167s] writing ../../build/reactive_nav/reactive_nav.egg-info/PKG-INFO
+[3.168s] writing dependency_links to ../../build/reactive_nav/reactive_nav.egg-info/dependency_links.txt
+[3.168s] writing entry points to ../../build/reactive_nav/reactive_nav.egg-info/entry_points.txt
+[3.169s] writing requirements to ../../build/reactive_nav/reactive_nav.egg-info/requires.txt
+[3.169s] writing top-level names to ../../build/reactive_nav/reactive_nav.egg-info/top_level.txt
+[3.175s] reading manifest file '../../build/reactive_nav/reactive_nav.egg-info/SOURCES.txt'
+[3.177s] writing manifest file '../../build/reactive_nav/reactive_nav.egg-info/SOURCES.txt'
+[3.177s] running build
+[3.177s] running build_py
+[3.178s] copying reactive_nav/potential_fields_nav.py -> /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav
+[3.179s] running install
+[3.180s] running install_lib
+[3.182s] copying /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav/potential_fields_nav.py -> /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav
+[3.187s] byte-compiling /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav/potential_fields_nav.py to potential_fields_nav.cpython-310.pyc
+[3.189s] running install_data
+[3.191s] running install_egg_info
+[3.197s] removing '/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav-0.0.0-py3.10.egg-info' (and everything under it)
+[3.197s] Copying ../../build/reactive_nav/reactive_nav.egg-info to /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav-0.0.0-py3.10.egg-info
+[3.200s] running install_scripts
+[3.258s] Installing potential_fields_nav script to /home/marcos/PracticaROS/install/reactive_nav/lib/reactive_nav
+[3.259s] writing list of installed files to '/home/marcos/PracticaROS/build/reactive_nav/install.log'
+[3.352s] Invoked command in '/home/marcos/PracticaROS/src/reactive_nav' returned '0': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reactive_nav build --build-base /home/marcos/PracticaROS/build/reactive_nav/build install --record /home/marcos/PracticaROS/build/reactive_nav/install.log --single-version-externally-managed

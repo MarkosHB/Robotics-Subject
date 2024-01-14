@@ -1,0 +1,30 @@
+[0.720s] Invoking command in '/home/marcos/PracticaROS/build/reactive_nav': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/marcos/PracticaROS/build/reactive_nav/build
+[0.927s] running develop
+[1.051s] Removing /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive-nav.egg-link (link to .)
+[1.071s] Invoked command in '/home/marcos/PracticaROS/build/reactive_nav' returned '0': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --uninstall --editable --build-directory /home/marcos/PracticaROS/build/reactive_nav/build
+[1.073s] Invoking command in '/home/marcos/PracticaROS/src/reactive_nav': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reactive_nav build --build-base /home/marcos/PracticaROS/build/reactive_nav/build install --record /home/marcos/PracticaROS/build/reactive_nav/install.log --single-version-externally-managed
+[1.261s] running egg_info
+[1.262s] writing ../../build/reactive_nav/reactive_nav.egg-info/PKG-INFO
+[1.263s] writing dependency_links to ../../build/reactive_nav/reactive_nav.egg-info/dependency_links.txt
+[1.263s] writing entry points to ../../build/reactive_nav/reactive_nav.egg-info/entry_points.txt
+[1.264s] writing requirements to ../../build/reactive_nav/reactive_nav.egg-info/requires.txt
+[1.264s] writing top-level names to ../../build/reactive_nav/reactive_nav.egg-info/top_level.txt
+[1.265s] reading manifest file '../../build/reactive_nav/reactive_nav.egg-info/SOURCES.txt'
+[1.269s] writing manifest file '../../build/reactive_nav/reactive_nav.egg-info/SOURCES.txt'
+[1.269s] running build
+[1.269s] running build_py
+[1.270s] copying reactive_nav/potential_fields_nav.py -> /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav
+[1.271s] running install
+[1.271s] running install_lib
+[1.271s] creating /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav
+[1.272s] copying /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav/__init__.py -> /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav
+[1.272s] copying /home/marcos/PracticaROS/build/reactive_nav/build/lib/reactive_nav/potential_fields_nav.py -> /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav
+[1.272s] byte-compiling /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav/__init__.py to __init__.cpython-310.pyc
+[1.272s] byte-compiling /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav/potential_fields_nav.py to potential_fields_nav.cpython-310.pyc
+[1.273s] running install_data
+[1.274s] running install_egg_info
+[1.275s] Copying ../../build/reactive_nav/reactive_nav.egg-info to /home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages/reactive_nav-0.0.0-py3.10.egg-info
+[1.276s] running install_scripts
+[1.290s] Installing potential_fields_nav script to /home/marcos/PracticaROS/install/reactive_nav/lib/reactive_nav
+[1.290s] writing list of installed files to '/home/marcos/PracticaROS/build/reactive_nav/install.log'
+[1.309s] Invoked command in '/home/marcos/PracticaROS/src/reactive_nav' returned '0': PYTHONPATH=/home/marcos/PracticaROS/build/reactive_nav/prefix_override:/home/marcos/PracticaROS/install/reactive_nav/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/reactive_nav build --build-base /home/marcos/PracticaROS/build/reactive_nav/build install --record /home/marcos/PracticaROS/build/reactive_nav/install.log --single-version-externally-managed
